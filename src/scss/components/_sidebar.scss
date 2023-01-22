@@ -1,0 +1,21 @@
+.sidebar {
+	@apply w-2/12 bg-[#212121]  overflow-auto pb-8;
+	ul {
+		@apply flex flex-col border-b-2 border-gray-700;
+		.itemsBlocks {
+			@apply pl-6 py-3 hover:bg-zinc-600;
+			a {
+				@apply flex items-center gap-5;
+				.name {
+					@apply text-sm tracking-wider;
+				}
+			}
+		}
+	}
+	.textLink {
+		@apply flex gap-2 flex-wrap text-sm p-4 text-zinc-400;
+	}
+	.googleText {
+		@apply px-4 text-sm text-zinc-400;
+	}
+}
