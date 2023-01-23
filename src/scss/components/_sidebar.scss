@@ -1,9 +1,9 @@
 .sidebar {
-	@apply w-2/12 bg-[#212121]  overflow-auto pb-8;
+	@apply w-2/12 bg-[#131313] overflow-auto pb-8 pr-1;
 	ul {
-		@apply flex flex-col border-b-2 border-gray-700;
+		@apply flex flex-col border-b-[1px] border-gray-700 mt-3;
 		.itemsBlocks {
-			@apply pl-6 py-3 hover:bg-zinc-600;
+			@apply ml-2 mb-[5px] pl-6 py-3 hover:bg-zinc-700 rounded-xl;
 			a {
 				@apply flex items-center gap-5;
 				.name {

@@ -1,0 +1,6 @@
+.spiner {
+	@apply flex items-center w-full justify-center py-3;
+	.spinElement {
+		@apply w-12 h-12 border-2 border-red-600 border-solid rounded-full animate-spin border-t-transparent;
+	}
+}

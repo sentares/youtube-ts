@@ -124,7 +124,9 @@ export default function Sidebar() {
 					return (
 						<li
 							key={name}
-							className={`itemsBlocks ${name === 'Home' ? 'bg-slate-600' : ''}`}
+							className={`itemsBlocks ${
+								name === 'Home' ? 'bg-zinc-700/70' : ''
+							}`}
 						>
 							<a href='#'>
 								{icon}
