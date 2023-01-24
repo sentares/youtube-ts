@@ -42,7 +42,7 @@
 	"emmet.showExpandedAbbreviation": "never",
 
 	//Workbench
-	"workbench.colorTheme": "Omni",
+	"workbench.colorTheme": "Dracula",
 	//Разрешить уменьшение размера вкладок, когда доступного места недостаточно для отображения всех вкладок одновременно.
 	"workbench.editor.tabSizing": "shrink",
 	"workbench.iconTheme": "material-icon-theme",

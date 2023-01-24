@@ -1,0 +1,30 @@
+.watchCard {
+	@apply flex gap-8;
+	.blockPrew {
+		@apply relative min-w-fit;
+		&__durat {
+			@apply absolute bottom-3 right-3 text-sm bg-gray-900 px-2 py-0.5 z-10;
+		}
+		&__img {
+			@apply h-24 w-40 rounded-lg;
+		}
+	}
+	.blockTitle {
+		@apply flex gap-1 flex-col;
+		&__text {
+			@apply text-sm;
+			.title {
+				@apply line-clamp-2;
+			}
+		}
+		&__channelInfo {
+			@apply text-xs text-gray-400;
+			.name {
+				@apply hover:text-white text-base;
+			}
+			.views {
+				@apply after:content-['•'] after:mx-1;
+			}
+		}
+	}
+}

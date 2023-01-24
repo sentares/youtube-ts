@@ -5,6 +5,7 @@ import NavBar from '../components/NavBar'
 import Sidebar from '../components/Sidebar'
 import Spinner from '../components/Spiner'
 import Spiner from '../components/Spiner'
+import { clearVideos } from '../store'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import { getHomePageVideos } from '../store/reducers/getHomePageVideos'
 import { HomePageVideos } from '../Types'
@@ -12,6 +13,12 @@ import { HomePageVideos } from '../Types'
 export default function Home() {
 	const dispatch = useAppDispatch()
 	const videos = useAppSelector(state => state.youtubeApp.videos)
+
+	useEffect(() => {
+		return () => {
+			dispatch(clearVideos())
+		}
+	}, [dispatch])
 
 	useEffect(() => {
 		dispatch(getHomePageVideos(false))
@@ -31,7 +38,7 @@ export default function Home() {
 						next={() => dispatch(getHomePageVideos(true))}
 						hasMore={videos.length < 500}
 						loader={<Spinner />}
-						height={650}
+						height={1200}
 					>
 						<div className='contentBlock'>
 							{videos.map((item: HomePageVideos) => {
@@ -40,7 +47,7 @@ export default function Home() {
 						</div>
 					</InfiniteScroll>
 				) : (
-					<Spiner />
+					<Spinner />
 				)}
 			</div>
 		</div>

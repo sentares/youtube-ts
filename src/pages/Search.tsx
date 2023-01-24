@@ -1,3 +1,58 @@
+import { useEffect } from 'react'
+import InfiniteScroll from 'react-infinite-scroll-component'
+import SearchCard from '../components/SearchCard'
+import Navbar from '../components/NavBar'
+import Sidebar from '../components/Sidebar'
+import Spinner from '../components/Spiner'
+import { clearVideos } from '../store'
+import { useAppDispatch, useAppSelector } from '../store/hooks'
+import { HomePageVideos } from '../Types'
+import { useNavigate } from 'react-router-dom'
+import { getSearchPageVideos } from '../store/reducers/getSearchPageVideos'
+
 export default function Search() {
-	return <div>Search</div>
+	const navigate = useNavigate()
+	const dispatch = useAppDispatch()
+	const videos = useAppSelector(state => state.youtubeApp.videos)
+	const searchTerm = useAppSelector(state => state.youtubeApp.searchTerm)
+
+	useEffect(() => {
+		dispatch(clearVideos())
+		if (searchTerm === '') navigate('/')
+		else {
+			dispatch(getSearchPageVideos(false))
+		}
+	}, [dispatch, navigate, searchTerm])
+
+	return (
+		<div className='searchPage'>
+			<div style={{ height: '7.5vh' }}>
+				<Navbar />
+			</div>
+			<div className='flex' style={{ height: '92.5vh' }}>
+				<Sidebar />
+				{videos.length ? (
+					<div className='contentBlock'>
+						<InfiniteScroll
+							dataLength={videos.length}
+							next={() => dispatch(getSearchPageVideos(true))}
+							hasMore={videos.length < 500}
+							loader={<Spinner />}
+							height={800}
+						>
+							{videos.map((item: HomePageVideos) => {
+								return (
+									<div>
+										<SearchCard data={item} key={item.videoId} />
+									</div>
+								)
+							})}
+						</InfiniteScroll>
+					</div>
+				) : (
+					<Spinner />
+				)}
+			</div>
+		</div>
+	)
 }

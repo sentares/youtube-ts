@@ -1,12 +1,12 @@
 .card {
-	@apply w-[15.25rem] h-60 flex gap-3 flex-col;
+	@apply w-[268px] h-60 flex gap-3 flex-col;
 	.previewBlock {
 		@apply relative;
 		&__duration {
 			@apply absolute bottom-1 right-1 text-sm bg-zinc-900 px-2 py-0.5 z-10 bg-opacity-80 rounded-md;
 		}
 		.previewBlock__img {
-			@apply h-40 rounded-lg;
+			@apply h-[170px] rounded-lg;
 		}
 	}
 	.description {
